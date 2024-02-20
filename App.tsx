@@ -26,7 +26,10 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import GoogleMaps from './src/screeens/maps';
+import GoogleMaps from './src/screens/maps';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Profile from './src/screens/profile';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -80,6 +83,7 @@ type SectionProps = PropsWithChildren<{
 //   }
 
 // }
+const Tab = createBottomTabNavigator()
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -88,7 +92,14 @@ function App(): React.JSX.Element {
   };
 
   return (
-  <GoogleMaps/>
+  <NavigationContainer>
+    <Tab.Navigator>
+      <Tab.Screen name="Profile" component={Profile}/>
+      <Tab.Screen name="Map" component={GoogleMaps}/>
+
+    </Tab.Navigator>
+
+  </NavigationContainer>
 
   );
 }

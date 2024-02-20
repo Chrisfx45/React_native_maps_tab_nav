@@ -61,8 +61,8 @@ export default function GoogleMaps(){
 
     if(!permit) return <View><Text>Please allow location permission</Text></View>
     return (
-    <View>
-        <Text>Testing map functions</Text>
+    <View  style = {styles.container}> 
+        <Text style ={{color: "black"}}>Testing map functions</Text>
         <MapView style= {styles.map} provider={PROVIDER_GOOGLE} initialRegion={INITIAL_REGION}  showsUserLocation={true}>
         <Marker 
         coordinate ={{latitude:1.2833296647424215, longitude: 103.8331205251258}}
@@ -76,14 +76,17 @@ export default function GoogleMaps(){
 }
 const styles = StyleSheet.create({
     container :{
+
         ...StyleSheet.absoluteFillObject,
         width: "100%",
         height: "100%",
         justifyContent : "flex-end",
-        alignItems: "center"
+        alignItems: "center",
+        flex : 1,
+        color: "black"
     },
     map : {
-        width :"96%",
+        width :"100%",
         height :"94%"
     }
 })
