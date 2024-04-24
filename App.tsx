@@ -30,7 +30,7 @@ import GoogleMaps from './src/screens/maps';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Profile from './src/screens/profile';
-
+import HomePage from './src/screens/home';
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -93,8 +93,9 @@ function App(): React.JSX.Element {
 
   return (
   <NavigationContainer>
-    <Tab.Navigator>
-      <Tab.Screen name="Profile" component={Profile}/>
+    <Tab.Navigator screenOptions={{ headerShown: false }}>
+     <Tab.Screen name="Home" component={HomePage}  />
+      <Tab.Screen name="Profile" component={Profile}  />
       <Tab.Screen name="Map" component={GoogleMaps}/>
 
     </Tab.Navigator>
